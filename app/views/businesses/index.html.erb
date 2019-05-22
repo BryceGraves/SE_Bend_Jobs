@@ -1,25 +1,25 @@
 <h1> ALL businesses <h1>
 <table>
-    <thead>
-        <tr>
-            <td>Business Name</td>
-            <td>Job Title</td>
-            <td>Job Pay</td>
-            <td>Job Description</td>
-            <td>Job availability</td>
-        <tr>
-    </thead>
-    <tbody>
+  <thead>
+    <tr>
+    <td>Business Name</td>
+    <td>Job Title</td>
+    <td>Job Pay</td>
+    <td>Job Description</td>
+    <td>Job availability</td>
+    <tr>
+  </thead>
+  <tbody>
     <%@businesses.each do |business|%>
-    <%business.jobs.each do |job|%>
-    <tr class="business-row" id="<%=dom_id(business)%>">
+      <%business.jobs.each do |job|%>
+        <tr class="business-row" id="<%=dom_id(business)%>">
         <td class="name"><%= business.name %></td>
         <td><%= job.title%></td>
         <td><%= job.pay%></td>
         <td><%= job.description%></td>
         <td><%= job.available%></td>
-    </tr>
+        </tr>
+      <%end%>
     <%end%>
-    <%end%>
-    </tbody>
+  </tbody>
 </table>
