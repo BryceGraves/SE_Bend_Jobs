@@ -1,22 +1,21 @@
 class BusinessesController < ApplicationController
-    def new
-        @business = Business.new
+  def new
+    @business = Business.new
+  end 
 
-    end 
+  def index 
+    @businesses = Business.all
+  end
 
-    def index 
-        @businesses = Business.all
+  def create
+    @workflow = CreatesBusiness.new(name: params[:business][:name],
+    job_string: params[:business][:jobs])
+    @workflow.create
+    if @workflow.success?
+      redirect_to businesses_path
+    else
+      @business = @workflow.business
+      render :new
     end
-
-    def create
-        @workflow = CreatesBusiness.new(name: params[:business][:name],
-        job_string: params[:business][:jobs])
-        @workflow.create
-        if @workflow.success?
-            redirect_to businesses_path
-        else
-            @business = @workflow.business
-            render :new
-        end
-    end
+  end
 end

@@ -1,11 +1,11 @@
 <h1>New Buisness</h1>
 
 <%= form_for(@business) do |f| %>
-    <%= f.label(:name)%>
-    <%= f.text_field(:name) %>
-    <br />
-    <%= f.label(:jobs)%>
-    <%= text_area_tag("business[jobs]")%>
-    <br />
-    <%= f.submit "Create Business"%>
+  <%= f.label(:name)%>
+  <%= f.text_field(:name) %>
+  <br />
+  <%= f.label(:jobs)%>
+  <%= text_area_tag("business[jobs]")%>
+  <br />
+  <%= f.submit "Create Business"%>
 <%end%>

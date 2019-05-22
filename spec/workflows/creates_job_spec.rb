@@ -7,6 +7,7 @@ RSpec.describe CreatesJob do
     let(:pay) { "" }
     let(:description) { "" }
     let(:availability) { "" }
+
     it "creates a job given a title" do
       creator.build
       expect(creator.job.title).to eq("FAKE JOB TITLE")

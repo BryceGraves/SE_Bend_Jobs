@@ -24,4 +24,5 @@ FactoryBot.define do
       created_at { 6.months.ago }
     end
   end
+
 end
