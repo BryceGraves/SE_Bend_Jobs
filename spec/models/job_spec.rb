@@ -7,6 +7,7 @@ RSpec.describe Job, type: :model do
 
   it "creates a job with a title and description" do
     job = FactoryBot.create(:job)
+
     expect(job.title).to eq("Fake Title")
     expect(job.description).to eq("Fake Description")
   end
