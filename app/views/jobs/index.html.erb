@@ -10,12 +10,12 @@
     </tr>
   </thead>
   <tbody>
-    <% @Jobs.each do |job| %>
+    <% @jobs.each do |job| %>
       <tr>
         <td><%= job.title %></td>
-        <td><% = job.description %></td>
-        <td><% = job.pay %></td>
-        <td><% = job.availability %></td>
+        <td><%= job.description %></td>
+        <td><%= job.pay %></td>
+        <td><%= job.available %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe CreatesJob do
-  let(:creator) { CreatesJob.new(title: "FAKE JOB TITLE", pay: pay, description_string: description, availability: availability) }
+  let(:creator) { CreatesJob.new(title: "FAKE JOB TITLE", pay: pay, description: description, availability: availability) }
 
   describe "initialization" do
     let(:pay) { "" }

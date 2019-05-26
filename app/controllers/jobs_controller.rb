@@ -1,20 +1,22 @@
 class JobsController < ApplicationController
-  def new
-    @job = Job.new
-  end
-
   def index
     @jobs = Job.all
   end
 
+  def new
+    @job = Job.new
+  end
+
   def create
     @job_workflow = CreatesJob.new(
-      title: params[:title],
-      description_string: params[:description],
-      pay: params[:pay],
-      availability: params[:availability]
+      title: params[:job][:title],
+      description: params[:job][:description],
+      pay: params[:job][:pay],
+      availability: params[:job][:availability]
     )
 
     @job_workflow.create
+
+    redirect_to jobs_path
   end
 end
