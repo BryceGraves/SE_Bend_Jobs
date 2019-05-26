@@ -1,0 +1,22 @@
+<h1>Jobs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <td>Title</td>
+      <td>Description</td>
+      <td>Pay</td>
+      <td>Availabilty</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @Jobs.each do |job| %>
+      <tr>
+        <td><%= job.title %></td>
+        <td><% = job.description %></td>
+        <td><% = job.pay %></td>
+        <td><% = job.availability %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
