@@ -10,7 +10,7 @@ class JobsController < ApplicationController
   def create
     @job_workflow = CreatesJob.new(
       title: params[:title],
-      description: params[:description],
+      description_string: params[:description],
       pay: params[:pay],
       availability: params[:availability]
     )
