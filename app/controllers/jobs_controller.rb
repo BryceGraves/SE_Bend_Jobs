@@ -12,7 +12,7 @@ class JobsController < ApplicationController
       title: params[:job][:title],
       description: params[:job][:description],
       pay: params[:job][:pay],
-      availability: params[:job][:availability]
+      availability: params[:availability]
     )
 
     @job_workflow.create
