@@ -1,20 +1,15 @@
 class CreatesJob
-  attr_accessor :title, :job, :description, :availability
+  attr_accessor :title, :description, :pay, :available, :job
 
-  def initialize(title: "", description: "", pay: "", availability: availability)
+  def initialize(title: "", description: "", pay: "", available: true)
     @title = title
     @description = description
     @pay = pay
-    @availability = availability
+    @available = available
   end
 
   def build
-    self.job = Job.new(
-      title: @title, 
-      description: @description, 
-      pay: pay_as_integer(@pay), 
-      available: availability_as_bool(@availability)
-    )
+    self.job = Job.new(title: title, description: description, pay: pay, available: available)
     job
   end
 
@@ -23,13 +18,4 @@ class CreatesJob
     job.save!
   end
 
-
-  def pay_as_integer(pay)
-    return 1 if pay.blank?
-    [pay.to_i, 1].max
-  end
-
-  def availability_as_bool(availability)
-    availability == "available" ? true : false
-  end
 end

@@ -1,36 +1,8 @@
 class Job < ApplicationRecord
   belongs_to :business, optional: true
-
-  def mark_as_available
-    self.available = true
-  end
-
-  def add_job_title(jobTitle)
-    @title = jobTitle
-
-    return @title
-  end
-
-  def add_job_description(jobDescription)
-    @description = jobDescription
-
-    return @description
-  end
-
-  def validates_pay_value
-  end
-
-  def job_pay
-    return @pay
-  end
-
-  def add_job_pay_rate(payRate)
-    @pay = payRate
-
-    return @pay
-  end
-
-  def add_job_id(id)
-    @id = id
-  end
+  validates :title, uniqueness: true
+  validates :description, length: { maximum: 1000,
+    too_long: "%{count} characters is the maximum allowed" }
+  validates :pay, numericality: { greater_than_or_equal_to: 0 }
+  validates :available, inclusion: { in: [ true, false ] }
 end

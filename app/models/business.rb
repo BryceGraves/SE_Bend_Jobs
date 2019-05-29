@@ -10,17 +10,12 @@ class Business < ApplicationRecord
     jobs.available?
   end
 
-    def open_job_salaries
-        @salaries = jobs.sum(&:pay)
-    end
+  def open_job_salaries
+    @salaries = jobs.sum(&:pay)
+  end
 
-    def remove(job)
-        jobs.delete(job)
-    end
-
-    def perform(big_dependency)
-        big_dependency.execute
-        return 42
-    end
+  def remove(job)
+    jobs.delete(job)
+  end
 
 end

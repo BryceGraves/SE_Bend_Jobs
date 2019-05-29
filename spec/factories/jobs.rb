@@ -1,27 +1,29 @@
 FactoryBot.define do
   factory :job do
     business { nil }
-    title { "Fake Title" }
-    description { "Fake Description" }
-    pay { 15000 }
+    title { "FAKE TITLE" }
+    description { "FAKE DESCRIPTION" }
+    pay { 42 }
     available { false }
-
-    trait :nopay do
-      pay { nil }
-    end
 
     trait :available do
       available { true }
     end
 
-    trait :new_available do
-      available
-      created_at { 1.day.ago }
+    trait :no_title do
+      title { "" }
     end
 
-    trait :old_available do
-      available
-      created_at { 6.months.ago }
+    trait :no_description do
+      description { "" }
+    end
+
+    trait :no_pay do
+      pay { nil }
+    end
+
+    trait :no_availability do
+      available { nil }
     end
   end
 
