@@ -8,7 +8,6 @@ class CreateJobs < ActiveRecord::Migration[5.2]
       t.boolean :available
       t.datetime :created_at
       t.datetime :updated_at
-
       t.timestamps
     end
   end
