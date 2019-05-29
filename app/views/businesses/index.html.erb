@@ -7,7 +7,10 @@
   </thead>
   <tbody>
     <%@businesses.each do |business|%>
-      <td class="name"><%= business.name %></td>      
+      <tr>
+        <td class="name"><%= business.name %></td>    
+        <td><%= link_to '<button type="button">Add Job</button>'.html_safe, new_job_path %></td>
+      </tr> 
     <%end%>
   </tbody>
 </table>
