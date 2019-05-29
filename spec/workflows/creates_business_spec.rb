@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe CreatesBusiness do
-  let(:creator) { CreatesBusiness.new(name: "TEST BUSINESS", job_string: job_string) }
+  let(:creator) { CreatesBusiness.new(name: "TEST BUSINESS") }
 
   describe "initialization" do
     let(:job_string) { "" }
