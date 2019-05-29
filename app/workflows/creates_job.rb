@@ -15,7 +15,7 @@ class CreatesJob
 
   def create
     build
-    job.save
+    job.save!
   end
 
 end
