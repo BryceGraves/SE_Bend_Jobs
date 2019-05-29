@@ -5,9 +5,11 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
+    byebug
   end
 
   def create
+    byebug
     @job_workflow = CreatesJob.new(
       title: params[:job][:title],
       description: params[:job][:description],
