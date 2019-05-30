@@ -6,6 +6,6 @@ RSpec.describe "adding a job to a business", type: :system do
     fill_in "Name", with: "FAKE BUSINESS"
     click_on("Create Business")
     expect(page).to have_content("FAKE BUSINESS")
-    click_on("Add Job")
+    click_on("add-job")
   end
 end

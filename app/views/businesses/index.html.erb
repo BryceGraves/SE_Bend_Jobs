@@ -9,7 +9,7 @@
     <%@businesses.each do |business|%>
       <tr>
         <td class="name"><%= business.name %></td>    
-        <td><%= link_to '<button type="button">Add Job</button>'.html_safe, new_job_path %></td>
+        <td><%= link_to '<button id="add-job" type="button">Add Job</button>'.html_safe, new_job_path %></td>
       </tr> 
     <%end%>
   </tbody>
