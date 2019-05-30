@@ -13,7 +13,7 @@ class JobsController < ApplicationController
       title: params[:job][:title],
       description: params[:job][:description],
       pay: params[:job][:pay],
-      available: params[:available],
+      available: params[:availability],
       business_id: params[:business_id]
     )
 

@@ -10,7 +10,7 @@ RSpec.describe "adding a job to a business", type: :system do
     fill_in "Title", with: "Salary Man"
     fill_in "Description", with: "Very important"
     fill_in "Pay", with: 250
-    select("unavailable", :from => "availability")
+    select("available", :from => "availability")
     click_on("Create Job")
     expect(page).to have_content("FAKE BUSINESS")
     expect(page).to have_content("Salary Man")
