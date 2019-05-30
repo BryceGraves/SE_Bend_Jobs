@@ -19,7 +19,7 @@ class JobsController < ApplicationController
 
     @job_workflow.create
 
-    redirect_to controller: 'businesses', action: 'show', id: @business_id
+    redirect_to controller: 'businesses', action: 'show', id: params[:business_id]
   end
   
 end
