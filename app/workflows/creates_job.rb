@@ -5,13 +5,23 @@ class CreatesJob
     @title = title
     @description = description
     @pay = pay
-    @available = ActiveModel::Type::Boolean.new.cast(available)
+    @available = string_to_bool(available)
     @business_id = business_id
   end
 
   def build
     self.job = Job.new(title: title, description: description, pay: pay, available: available)
     job
+  end
+
+  def string_to_bool(available)
+    if available == "true"
+      true
+    elsif available == "false"
+      false
+    else
+      available
+    end
   end
 
   def create
