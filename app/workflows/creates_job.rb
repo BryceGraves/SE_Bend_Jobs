@@ -15,7 +15,8 @@ class CreatesJob
 
   def create
     build
-    job.save!
+    result = job.save
+    @success = result
   end
 
 end
