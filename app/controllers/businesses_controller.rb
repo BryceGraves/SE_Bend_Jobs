@@ -8,8 +8,7 @@ class BusinessesController < ApplicationController
   end
 
   def create
-    @workflow = CreatesBusiness.new(name: params[:business][:name],
-    job_string: params[:business][:jobs])
+    @workflow = CreatesBusiness.new(name: params[:business][:name])
     @workflow.create
     if @workflow.success?
       redirect_to businesses_path
@@ -17,5 +16,9 @@ class BusinessesController < ApplicationController
       @business = @workflow.business
       render :new
     end
+  end
+
+  def show
+    @business = Business.find(params[:id])
   end
 end

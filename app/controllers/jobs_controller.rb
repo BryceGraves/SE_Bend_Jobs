@@ -4,6 +4,7 @@ class JobsController < ApplicationController
   end
 
   def new
+    @business_id = params[:business_id] 
     @job = Job.new
   end
 
@@ -12,12 +13,13 @@ class JobsController < ApplicationController
       title: params[:job][:title],
       description: params[:job][:description],
       pay: params[:job][:pay],
-      availability: params[:availability]
+      available: params[:availability],
+      business_id: params[:business_id]
     )
 
     @job_workflow.create
 
-    redirect_to jobs_path
+    redirect_to controller: 'businesses', action: 'show', id: params[:business_id]
   end
   
 end

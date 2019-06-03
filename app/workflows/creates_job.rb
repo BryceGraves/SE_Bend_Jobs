@@ -1,11 +1,12 @@
 class CreatesJob
   attr_accessor :title, :description, :pay, :available, :job
 
-  def initialize(title: "", description: "", pay: "", available: true)
+  def initialize(title: "", description: "", pay: "", available: true, business_id: "")
     @title = title
     @description = description
     @pay = pay
-    @available = available
+    @available = ActiveModel::Type::Boolean.new.cast(available)
+    @business_id = business_id
   end
 
   def build
@@ -14,9 +15,9 @@ class CreatesJob
   end
 
   def create
-    build
-    result = job.save
-    @success = result
+    business = Business.find(@business_id)
+    business.jobs << build
+    job.save!
   end
 
 end
