@@ -8,7 +8,6 @@ RSpec.describe CreatesBusiness do
   describe "When a business is created" do
     it "It has the name specified" do
       creator.build
-
       expect(creator.business.name).to eq("FAKE BUSINESS")
     end
   end
