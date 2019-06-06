@@ -66,4 +66,5 @@ yarn-debug.log*
 /storage/*
 !/storage/.keep
 
+.vscode*
 echo "coverage" >> .gitignore
