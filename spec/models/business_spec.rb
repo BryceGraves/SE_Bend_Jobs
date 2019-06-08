@@ -36,18 +36,6 @@ RSpec.describe Business do
   end
 
   describe "Business functionality" do
-    context "A business can check if has a hiring job available" do
-      it "If it has one job" do
-        expect(valid_business_one_job.hiring?).to eq(true)
-        expect(valid_business_one_unavailable_job.hiring?).to eq(false)
-      end
-
-      it "If it has many jobs with varying availability" do
-        expect(valid_business_many_jobs.hiring?).to eq(true)
-        expect(valid_business_no_available_jobs.hiring?).to eq(false)
-      end
-    end
-
     context "A business can check what jobs are available" do
       it "If it has no jobs" do
         expected_result = Array(valid_business_no_jobs.jobs).keep_if { |job| job.available == true }
@@ -79,6 +67,19 @@ RSpec.describe Business do
         expect(valid_business_no_available_jobs.available_jobs).to eq(expected_result)
       end
     end
+
+    context "A business can check if has a hiring job available" do
+      it "If it has one job" do
+        expect(valid_business_one_job.hiring?).to eq(true)
+        expect(valid_business_one_unavailable_job.hiring?).to eq(false)
+      end
+
+      it "If it has many jobs with varying availability" do
+        expect(valid_business_many_jobs.hiring?).to eq(true)
+        expect(valid_business_no_available_jobs.hiring?).to eq(false)
+      end
+    end
+
   end
 
 end
