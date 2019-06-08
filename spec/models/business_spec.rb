@@ -48,6 +48,37 @@ RSpec.describe Business do
       end
     end
 
+    context "A business can check what jobs are available" do
+      it "If it has no jobs" do
+        expected_result = Array(valid_business_no_jobs.jobs).keep_if { |job| job.available == true }
+
+        expect(valid_business_no_jobs.available_jobs).to eq(expected_result)
+      end
+
+      it "If it has one job" do
+        expected_result = Array(valid_business_one_job.jobs).keep_if { |job| job.available == true }
+
+        expect(valid_business_one_job.available_jobs).to eq(expected_result)
+      end
+
+      it "If it has one unavailable job" do
+        expected_result = Array(valid_business_one_unavailable_job.jobs).keep_if { |job| job.available == true }
+
+        expect(valid_business_one_unavailable_job.available_jobs).to eq(expected_result)
+      end
+
+      it "If it has many jobs" do
+        expected_result = Array(valid_business_many_jobs.jobs).keep_if { |job| job.available == true }
+
+        expect(valid_business_many_jobs.available_jobs).to eq(expected_result)
+      end
+
+      it "If it has many unavailable jobs" do
+        expected_result = Array(valid_business_no_available_jobs.jobs).keep_if { |job| job.available == true }
+
+        expect(valid_business_no_available_jobs.available_jobs).to eq(expected_result)
+      end
+    end
   end
 
 end

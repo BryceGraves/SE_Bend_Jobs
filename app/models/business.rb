@@ -7,7 +7,7 @@ class Business < ApplicationRecord
   end
 
   def available_jobs
-    jobs.available?
+    jobs.find_all(&:available?)
   end
 
   def open_job_salaries

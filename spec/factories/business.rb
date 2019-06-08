@@ -6,7 +6,7 @@ FactoryBot.define do
     trait :with_one_job do
         jobs {
           [
-            Job.new(title: "FAKE JOB WITH SALARY 92000", pay: 92000, description: "FAKE DESCRIPTION", available: true)
+            Job.new(title: "FAKE JOB", pay: 42, description: "FAKE DESCRIPTION", available: true)
           ]
         }
     end
@@ -14,10 +14,10 @@ FactoryBot.define do
     trait :with_one_unavailable_job do
       jobs {
         [
-          Job.new(title: "FAKE UNAVAILABLE JOB", pay: 92000, description: "FAKE DESCRIPTION", available: false)
+          Job.new(title: "FAKE UNAVAILABLE JOB", pay: 42, description: "FAKE DESCRIPTION", available: false)
         ]
       }
-  end
+    end
 
     trait :with_many_jobs do
       jobs {
@@ -29,7 +29,7 @@ FactoryBot.define do
             Job.new(title: "FAKE JOB FIVE", pay: 5, description: "FAKE DESCRIPTION", available: true)
           ]
         }
-    end
+      end
 
     trait :with_no_available_jobs do
       jobs {
