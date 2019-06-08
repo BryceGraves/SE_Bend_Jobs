@@ -10,8 +10,8 @@ class Business < ApplicationRecord
     jobs.any?(&:available?)
   end
 
-  def open_job_salaries
-    @salaries = jobs.sum(&:pay)
+  def total_pay
+    jobs.sum(&:pay)
   end
 
   def remove(job)
