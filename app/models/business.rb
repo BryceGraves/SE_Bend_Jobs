@@ -6,6 +6,11 @@ class Business < ApplicationRecord
     self.jobs.find_all(&:available?)
   end
 
+  def average_pay
+    return 0 if self.jobs.size == 0
+    total_pay / self.jobs.size
+  end
+
   def hiring?
     self.jobs.any?(&:available?)
   end
