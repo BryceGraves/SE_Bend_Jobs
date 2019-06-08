@@ -80,6 +80,17 @@ RSpec.describe Business do
       end
     end
 
+    context "A business can return total pay of it's jobs" do
+      it "Returns zero pay if it has no jobs" do
+        expect(valid_business_no_jobs.total_pay).to eq(0)
+      end
+
+      it "Returns pay if it has one or more jobs" do
+        expect(valid_business_one_job.total_pay).to eq(42.0)
+        expect(valid_business_many_jobs.total_pay).to eq(15.0)
+      end
+    end
+
   end
 
 end
