@@ -3,19 +3,19 @@ class Business < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   def available_jobs
-    jobs.find_all(&:available?)
+    self.jobs.find_all(&:available?)
   end
 
   def hiring?
-    jobs.any?(&:available?)
+    self.jobs.any?(&:available?)
   end
 
   def total_pay
-    jobs.sum(&:pay)
+    self.jobs.sum(&:pay)
   end
 
   def remove(job)
-    jobs.delete(job)
+    self.jobs.delete(job).first
   end
 
 end

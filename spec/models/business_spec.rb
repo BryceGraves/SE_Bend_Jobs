@@ -91,6 +91,28 @@ RSpec.describe Business do
       end
     end
 
+    context "A business can remove a job" do
+      it "Removing a job returns the job removed" do
+        removed_job = valid_business_many_jobs.jobs[3]
+
+        expect(valid_business_many_jobs.remove(removed_job)).to eq(removed_job)
+      end
+
+      it "A job is removed if the job passed is one of the jobs of the business" do
+        removed_job = valid_business_many_jobs.jobs[3]
+        valid_business_many_jobs.remove(removed_job)
+
+        expect(valid_business_many_jobs.jobs.size).to eq(4)
+      end
+
+      it "A job is not removed if the job passed is not one of the business's jobs" do
+        removed_job = Job.new(title: "FAKE JOB FOUR", pay: 4, description: "FAKE DESCRIPTION", available: false)
+        valid_business_many_jobs.remove(removed_job)
+
+        expect(valid_business_many_jobs.jobs.size).to_not eq(4)
+      end
+    end
+
   end
 
 end
