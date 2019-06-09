@@ -5,7 +5,7 @@ RSpec.describe "adding a job to a business", type: :system do
     visit new_business_path
     fill_in "Name", with: "FAKE BUSINESS"
     click_on("Create Business")
-    click_link("Add Job")
+    click_link('add-job-FAKE BUSINESS')
     expect(page).to have_content("Add a Job")
     fill_in "Title", with: "Salary Man"
     fill_in "Description", with: "Very important"
@@ -23,7 +23,7 @@ RSpec.describe "adding a job to a business", type: :system do
     visit new_business_path
     fill_in "Name", with: "FAKE BUSINESS"
     click_on("Create Business")
-    click_link("Add Job")
+    click_link('add-job-FAKE BUSINESS')
     expect(page).to have_content("Add a Job")
     click_on("Create Job")
     expect(page).to have_content("Sorry the job couldn't be created. Please try again.")
