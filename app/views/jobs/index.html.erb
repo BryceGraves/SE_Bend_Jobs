@@ -1,12 +1,28 @@
+<style type="text/css">
+table,
+td {
+  border: 1px solid black;
+  text-align: center;
+}
+thead {
+  font-weight: bold;
+}
+</style>
+
+
 <h1>Jobs</h1>
 
 <table>
   <thead>
     <tr>
+      <th colspan="5">All Jobs</th>
+    </tr>
+    <tr>
       <td>Title</td>
       <td>Description</td>
       <td>Pay</td>
       <td>Availabilty</td>
+      <td>Business</td>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +32,7 @@
         <td><%= job.description %></td>
         <td><%= job.pay %></td>
         <td><%= job.available %></td>
+        <td><%= job.business.name %></td>
       </tr>
     <% end %>
   </tbody>
