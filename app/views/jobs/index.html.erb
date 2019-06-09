@@ -9,13 +9,10 @@ thead {
 }
 </style>
 
-
-<h1>Jobs</h1>
-
 <table>
   <thead>
     <tr>
-      <th colspan="5">All Jobs</th>
+      <th colspan="6">All Jobs</th>
     </tr>
     <tr>
       <td>Title</td>
@@ -23,6 +20,7 @@ thead {
       <td>Pay</td>
       <td>Availabilty</td>
       <td>Business</td>
+      <td>View Business</td>
     </tr>
   </thead>
   <tbody>
@@ -33,7 +31,10 @@ thead {
         <td><%= job.pay %></td>
         <td><%= job.available %></td>
         <td><%= job.business.name %></td>
+        <td><%= link_to "View #{job.business.name}", business_path(:id => job.business.id) %>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<%= link_to "See All Businesses", businesses_path %>
