@@ -32,5 +32,5 @@ thead {
     <% end %>
   </tbody>
 </table>
-<%= link_to "<button>BACK TO BUSINESSES</button>".html_safe, businesses_path %>
-<%= link_to '<button id="add-job" type="button">Add Job</button>'.html_safe, new_job_path(:business_id => @business.id) %>
+<%= link_to "BACK TO BUSINESSES", businesses_path %>
+<%= link_to "Add Job", new_job_path(:business_id => @business.id), id: "add-job-#{@business.name}" %>
