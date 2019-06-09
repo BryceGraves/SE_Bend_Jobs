@@ -16,9 +16,15 @@ class JobsController < ApplicationController
       available: params[:availability],
       business_id: params[:business_id]
     )
-
-    @job_workflow.create
-
+    
+    begin
+      @job_workflow.create  
+    rescue StandardError => err
+      @job = @job_workflow.job
+      render :new
+      return
+    end
+    
     redirect_to controller: 'businesses', action: 'show', id: params[:business_id]
   end
   

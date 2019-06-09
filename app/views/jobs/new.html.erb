@@ -14,3 +14,15 @@
   <%= hidden_field_tag 'business_id', @business_id %>
   <%= j.submit %>
 <% end %>
+
+<%if @job.errors.any? %>
+  <div id="errors">
+    <h2>Sorry the job couldn't be created. Please try again.</h2>
+    <h3>Job not created because:</h3>
+    <ul>
+      <% @job.errors.messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
