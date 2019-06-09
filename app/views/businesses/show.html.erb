@@ -1,11 +1,19 @@
-<h1><%= @business.name %></h1>
-<%= link_to "<button>BACK TO BUSINESSES</button>".html_safe, businesses_path %>
-<%= link_to '<button id="add-job" type="button">Add Job</button>'.html_safe, new_job_path(:business_id => @business.id) %>
+<style type="text/css">
+table,
+td {
+  border: 1px solid black;
+  text-align: center;
+}
+thead {
+  font-weight: bold;
+}
+</style>
 
-<br>
-<h2>Jobs</h2>
 <table>
   <thead>
+    <tr>
+      <th colspan="4"><%= @business.name %> Jobs</th>
+    </tr>
     <tr>
       <td>Title</td>
       <td>Description</td>
@@ -18,9 +26,11 @@
       <tr>
         <td><%= job.title %></td>
         <td><%= job.description %></td>
-        <td><%= job.pay %></td>
+        <td>$<%= job.pay %></td>
         <td><%= job.available %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%= link_to "<button>BACK TO BUSINESSES</button>".html_safe, businesses_path %>
+<%= link_to '<button id="add-job" type="button">Add Job</button>'.html_safe, new_job_path(:business_id => @business.id) %>
