@@ -3,12 +3,16 @@
   <thead>
     <tr>
     <td>Business Name</td>
+    <td>Available Jobs</td>
+    <td>Average Pay</td>
     <tr>
   </thead>
   <tbody>
     <%@businesses.each do |business|%>
       <tr>
-        <td class="name"><%= business.name %></td>    
+        <td class="name"><%= business.name %></td>
+        <td class="available-jobs"><%= business.available_jobs.count %></td>    
+        <td class="average-salary"><%= business.average_pay %></td>    
         <td>
           <%= link_to '<button id="view-business" type="button">View Business</button>'.html_safe, business_path(:id => business.id) %>
           <%= link_to '<button id="add-job" type="button">Add Job</button>'.html_safe, new_job_path(:business_id => business.id) %>
