@@ -1,4 +1,7 @@
 <h1><%= @business.name %></h1>
+<%= link_to "<button>BACK TO BUSINESSES</button>".html_safe, businesses_path %>
+<%= link_to '<button id="add-job" type="button">Add Job</button>'.html_safe, new_job_path(:business_id => @business.id) %>
+
 <br>
 <h2>Jobs</h2>
 <table>
