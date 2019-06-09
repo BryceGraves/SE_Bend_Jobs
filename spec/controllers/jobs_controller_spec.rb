@@ -10,7 +10,9 @@ RSpec.describe JobsController, type: :controller do
     it "gets all the jobs" do
       expect(Job).to receive(:all)
       get :index
+      expect(@jobs).to_not eq(nil)
     end
   end
+
 
 end
