@@ -18,4 +18,14 @@ RSpec.describe "adding a job to a business", type: :system do
     expect(page).to have_content("250")
     expect(page).to have_content("true")
   end
+
+  it "redirects back to the add job page if the job isn't created" do
+    visit new_business_path
+    fill_in "Name", with: "FAKE BUSINESS"
+    click_on("Create Business")
+    click_link("Add Job")
+    expect(page).to have_content("Add a Job")
+    click_on("Create Job")
+    expect(page).to have_content("Sorry the job couldn't be created. Please try again.")
+  end
 end
