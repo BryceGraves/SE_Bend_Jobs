@@ -1,11 +1,26 @@
-<h1> ALL BUSINESSES <h1>
+<style type="text/css">
+table,
+td {
+  border: 1px solid black;
+}
+thead {
+  font-weight: bold;
+}
+
+</style>
+
 <table>
   <thead>
+    <tr>
+      <th colspan="5">ALL BUSINESSES</th>
+    </tr>
     <tr>
     <td>Business Name</td>
     <td>Available Jobs</td>
     <td>Average Pay</td>
-    <tr>
+    <td>Viewing</td>
+    <td>Adding</td>
+    </tr>
   </thead>
   <tbody>
     <%@businesses.each do |business|%>
@@ -15,6 +30,8 @@
         <td class="average-salary"><%= business.average_pay %></td>    
         <td>
           <%= link_to '<button id="view-business" type="button">View Business</button>'.html_safe, business_path(:id => business.id) %>
+        </td>
+        <td>
           <%= link_to '<button id="add-job" type="button">Add Job</button>'.html_safe, new_job_path(:business_id => business.id) %>
         </td>
       </tr> 
