@@ -14,6 +14,7 @@ class BusinessesController < ApplicationController
       )
     @workflow.create
     if @workflow.success?
+      @workflow.business.logo.attach(params[:business][:logo])
       redirect_to businesses_path
     else
       @business = @workflow.business
