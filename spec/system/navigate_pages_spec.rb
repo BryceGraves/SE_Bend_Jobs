@@ -27,14 +27,14 @@ RSpec.describe 'Visiting the correct pages', type: :system do
       expect(page).to have_content('New Business')
     end
 
-    it 'can click a link to view a businesses jobs' do
+    it "can click a link to view a business's jobs" do
       visit businesses_path
       click_link('Add New Business')
       fill_in 'Name', with: 'FAKE BUSINESS NAME'
       fill_in 'Business type', with: 'FAKE SERVICE'
       click_on('Create Business')
       click_link('view-business-FAKE BUSINESS NAME')
-      expect(page).to have_content('FAKE BUSINESS NAME Jobs')
+      expect(page).to have_content('Jobs: FAKE BUSINESS NAME')
     end
 
     it 'can click a link to add a job to a business' do
@@ -69,7 +69,7 @@ RSpec.describe 'Visiting the correct pages', type: :system do
       click_on("Create Job")
       visit jobs_path
       click_link('View FAKE BUSINESS NAME')
-      expect(page).to have_content('FAKE BUSINESS NAME Jobs')
+      expect(page).to have_content('Jobs: FAKE BUSINESS NAME')
     end
   end
 
