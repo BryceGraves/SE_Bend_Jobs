@@ -33,7 +33,7 @@ thead {
           <%= link_to "View Business", business_path(:id => business.id), id: "view-business-#{business.name}" %>
         </td>
         <td>
-          <%= link_to "Add Job", new_job_path(:business_id => business.id), id: "add-job-#{business.name}" %>
+          <%= link_to "Add Job", new_business_job_path(:business_id => business.id), id: "add-job-#{business.name}" %>
         </td> 
       </tr> 
     <%end%>
