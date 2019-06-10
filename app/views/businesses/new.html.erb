@@ -5,5 +5,7 @@
   <%= f.text_field(:name) %>
   <%= f.label(:business_type)%>
   <%= f.text_field(:business_type) %>
+  <%= f.label "Business Logo" %>
+  <%= f.file_field :logo %>
   <%= f.submit "Create Business"%>
 <%end%>

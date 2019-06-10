@@ -7,7 +7,6 @@ td {
 thead {
   font-weight: bold;
 }
-
 </style>
 
 <%= link_to "All Businesses", businesses_path %>
@@ -15,7 +14,7 @@ thead {
 <table>
   <thead>
     <tr>
-      <th colspan="7">All businesses</th>
+      <th colspan="8">All businesses</th>
     </tr>
     <tr>
     <td>Business Name</td>
@@ -24,16 +23,24 @@ thead {
     <td>Average Pay</td>
     <td>View Business</td>
     <td>Add</td>
+    <td>Logo</td>
     <td>Delete</td>
     </tr>
   </thead>
   <tbody>
     <%@businesses.each do |business|%>
+      <% if business.logo.attached? %>
+        <% image_source = url_for(business.logo) %>
+        <% image_id = "custom-logo"%>
+      <% else %>
+        <% image_source = '/business.jpg' %>
+        <% image_id = "default-logo"%>
+      <% end %>
       <tr>
         <td class="name"><%= business.name %></td>
         <td class="business-type"><%= business.business_type %></td>
         <td class="available-jobs"><%= business.available_jobs.count %></td>    
-        <td class="average-salary"><%= business.average_pay %></td>    
+        <td class="average-salary"><%= business.average_pay %></td>
         <td>
           <%=
             link_to "View #{business.name}",
@@ -48,6 +55,7 @@ thead {
             id: "add-job-#{business.name}"
           %>
         </td>
+        <td class="logo"><img id="<%= image_id %>" width="40px" height="40px" src="<%= image_source %>"></td>    
         <td>
           <%=
             link_to "Delete Me",
