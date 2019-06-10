@@ -9,6 +9,14 @@ thead {
 }
 </style>
 
+<% if @business.logo.attached? %>
+  <% image_source = url_for(@business.logo) %>
+<% else %>
+  <% image_source = '/business.jpg' %>
+<% end %>
+
+<img src="<%= image_source %>">          
+
 <table>
   <thead>
     <tr>
