@@ -30,7 +30,7 @@ class JobsController < ApplicationController
 
   def destroy
     Job.find(params[:id]).destroy
-    redirect_to controller: 'businesses', action: 'show', id: params[:business_id]
+    redirect_to request.referrer
   end
   
 end
