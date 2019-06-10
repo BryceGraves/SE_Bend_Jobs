@@ -21,6 +21,11 @@ class BusinessesController < ApplicationController
     end
   end
 
+  def destroy
+    Business.find(params[:id]).destroy
+    redirect_to request.referrer
+  end
+
   def show
     @business = Business.find(params[:id])
   end

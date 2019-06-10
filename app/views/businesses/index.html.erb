@@ -15,7 +15,7 @@ thead {
 <table>
   <thead>
     <tr>
-      <th colspan="6">All businesses</th>
+      <th colspan="7">All businesses</th>
     </tr>
     <tr>
     <td>Business Name</td>
@@ -24,6 +24,7 @@ thead {
     <td>Average Pay</td>
     <td>View Business</td>
     <td>Add</td>
+    <td>Delete</td>
     </tr>
   </thead>
   <tbody>
@@ -34,11 +35,27 @@ thead {
         <td class="available-jobs"><%= business.available_jobs.count %></td>    
         <td class="average-salary"><%= business.average_pay %></td>    
         <td>
-          <%= link_to "View #{business.name}", business_path(:id => business.id), id: "view-business-#{business.name}" %>
+          <%=
+            link_to "View #{business.name}",
+            business_path(:id => business.id),
+            id: "view-business-#{business.name}"
+          %>
         </td>
         <td>
-          <%= link_to "Add Job", new_business_job_path(:business_id => business.id), id: "add-job-#{business.name}" %>
-        </td> 
+          <%=
+            link_to "Add Job",
+            new_business_job_path(:business_id => business.id),
+            id: "add-job-#{business.name}"
+          %>
+        </td>
+        <td>
+          <%=
+            link_to "Delete Me",
+            business_path(:id => business.id),
+            method: :delete,
+            id: "delete-business-#{business.id}"
+          %>
+        </td>
       </tr> 
     <%end%>
   </tbody>
