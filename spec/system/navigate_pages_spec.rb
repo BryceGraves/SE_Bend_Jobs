@@ -10,14 +10,14 @@ RSpec.describe 'Visiting the correct pages', type: :system do
     it 'can click the link to see all the businesses' do
       visit root_path
       click_link('Find Businesses Today!')
-      expect(page).to have_content('ALL BUSINESSES')
+      expect(page).to have_content('All businesses')
     end
   end
 
   context 'business index page' do
     it 'can click the link to see all the jobs' do
       visit businesses_path
-      click_link('See All Jobs')
+      click_link('All Jobs')
       expect(page).to have_content('All Jobs')
     end
 
@@ -51,8 +51,8 @@ RSpec.describe 'Visiting the correct pages', type: :system do
   context 'jobs index page' do
     it 'can click a link to see all the businesses' do
       visit jobs_path
-      click_link('See All Businesses')
-      expect(page).to have_content('ALL BUSINESSES')
+      click_link('All Businesses')
+      expect(page).to have_content('All businesses')
     end
 
     it 'can click a link to view all the other jobs for a business' do
@@ -74,17 +74,6 @@ RSpec.describe 'Visiting the correct pages', type: :system do
   end
 
   context 'page showing a business' do
-    it 'can click a link to go back to the business index page' do
-      visit businesses_path
-      click_link('Add New Business')
-      fill_in 'Name', with: 'FAKE BUSINESS NAME'
-      fill_in 'Business type', with: 'FAKE SERVICE'
-      click_on('Create Business')
-      click_link('view-business-FAKE BUSINESS NAME')
-      click_link('BACK TO BUSINESSES')
-      expect(page).to have_content('ALL BUSINESSES')
-    end
-
     it 'can click a link to add a job to the current business' do
       visit businesses_path
       click_link('Add New Business')
