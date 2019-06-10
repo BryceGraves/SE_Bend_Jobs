@@ -12,6 +12,4 @@ RSpec.describe JobsController, type: :controller do
       get :index
     end
   end
-
-
 end
