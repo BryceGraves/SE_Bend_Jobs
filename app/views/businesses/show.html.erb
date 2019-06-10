@@ -11,11 +11,13 @@ thead {
 
 <% if @business.logo.attached? %>
   <% image_source = url_for(@business.logo) %>
+  <% image_id = "custom-logo"%>
 <% else %>
   <% image_source = '/business.jpg' %>
+  <% image_id = "default-logo" %>
 <% end %>
 
-<img src="<%= image_source %>">          
+<img id="<%=image_id %>" src="<%= image_source %>">          
 
 <table>
   <thead>

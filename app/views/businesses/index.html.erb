@@ -30,8 +30,10 @@ thead {
     <%@businesses.each do |business|%>
       <% if business.logo.attached? %>
         <% image_source = url_for(business.logo) %>
+        <% image_id = "custom-logo"%>
       <% else %>
         <% image_source = '/business.jpg' %>
+        <% image_id = "default-logo"%>
       <% end %>
       <tr>
         <td class="name"><%= business.name %></td>
@@ -44,7 +46,7 @@ thead {
         <td>
           <%= link_to "Add Job", new_business_job_path(:business_id => business.id), id: "add-job-#{business.name}" %>
         </td>
-        <td class="logo"><img width="40px" height="40px" src="<%= image_source %>"></td>    
+        <td class="logo"><img id="<%= image_id %>" width="40px" height="40px" src="<%= image_source %>"></td>    
       </tr> 
     <%end%>
   </tbody>
