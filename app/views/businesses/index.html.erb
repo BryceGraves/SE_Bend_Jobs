@@ -9,21 +9,22 @@ thead {
 }
 </style>
 
-
-
+<%= link_to "All Businesses", businesses_path %>
+<%= link_to "All Jobs", jobs_path %>
 <table>
   <thead>
     <tr>
-      <th colspan="7">ALL BUSINESSES</th>
+      <th colspan="8">All businesses</th>
     </tr>
     <tr>
     <td>Business Name</td>
     <td>Business Type</td>
     <td>Available Jobs</td>
     <td>Average Pay</td>
-    <td>Viewing</td>
-    <td>Adding</td>
+    <td>View Business</td>
+    <td>Add</td>
     <td>Logo</td>
+    <td>Delete</td>
     </tr>
   </thead>
   <tbody>
@@ -41,15 +42,30 @@ thead {
         <td class="available-jobs"><%= business.available_jobs.count %></td>    
         <td class="average-salary"><%= business.average_pay %></td>
         <td>
-          <%= link_to "View Business", business_path(:id => business.id), id: "view-business-#{business.name}" %>
+          <%=
+            link_to "View #{business.name}",
+            business_path(:id => business.id),
+            id: "view-business-#{business.name}"
+          %>
         </td>
         <td>
-          <%= link_to "Add Job", new_business_job_path(:business_id => business.id), id: "add-job-#{business.name}" %>
+          <%=
+            link_to "Add Job",
+            new_business_job_path(:business_id => business.id),
+            id: "add-job-#{business.name}"
+          %>
         </td>
         <td class="logo"><img id="<%= image_id %>" width="40px" height="40px" src="<%= image_source %>"></td>    
+        <td>
+          <%=
+            link_to "Delete Me",
+            business_path(:id => business.id),
+            method: :delete,
+            id: "delete-business-#{business.name}"
+          %>
+        </td>
       </tr> 
     <%end%>
   </tbody>
 </table>
-<%= link_to "See All Jobs", jobs_path %>
 <%= link_to "Add New Business", new_business_path %>

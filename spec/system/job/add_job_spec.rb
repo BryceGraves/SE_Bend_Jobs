@@ -17,7 +17,7 @@ RSpec.describe "Adding a job to a business", type: :system do
     expect(page).to have_content("Salary Man")
     expect(page).to have_content("Very important")
     expect(page).to have_content("250")
-    expect(page).to have_content("true")
+    expect(page).to have_content("Yes")
   end
 
   it "redirects back to the add job page if the job isn't created" do
