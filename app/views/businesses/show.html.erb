@@ -1,4 +1,11 @@
 <style type="text/css">
+div {
+  display: flex;
+  flex-direction: row;
+}
+.subcontainer {
+  flex-direction: column;
+}
 table,
 td {
   border: 1px solid black;
@@ -17,40 +24,46 @@ thead {
   <% image_id = "default-logo" %>
 <% end %>
 
-<img id="<%=image_id %>" src="<%= image_source %>">          
+<ul>
+  <%= link_to "All Businesses", businesses_path %>
+  <%= link_to "All Jobs", jobs_path %>
+</ul>
 
-<%= link_to "All Businesses", businesses_path %>
-<%= link_to "All Jobs", jobs_path %>
-<table>
-  <thead>
-    <tr>
-      <th colspan="5">Jobs: <%= @business.name %></th>
-    </tr>
-    <tr>
-      <td>Title</td>
-      <td>Description</td>
-      <td>Pay</td>
-      <td>Available?</td>
-      <td>Delete</td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @business.jobs.each do |job| %>
-      <tr>
-        <td><%= job.title %></td>
-        <td><%= job.description %></td>
-        <td>$<%= job.pay %></td>
-        <td><%= job.available ? "Yes" : "No" %></td>
-        <td>
-          <%=
-            link_to "Delete Me",
-            business_job_path(:business_id => job.business.id, :id => job.id),
-            method: :delete,
-            id: "delete-job-#{job.id}"
-          %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to "Add Job", new_business_job_path(:business_id => @business.id), id: "add-job-#{@business.name}" %>
+<div css="display: flex">
+  <img id="<%=image_id %>" src="<%= image_source %>">
+  <div class="subcontainer">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="5">Jobs: <%= @business.name %></th>
+        </tr>
+        <tr>
+          <td>Title</td>
+          <td>Description</td>
+          <td>Pay</td>
+          <td>Available?</td>
+          <td>Delete</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @business.jobs.each do |job| %>
+          <tr>
+            <td><%= job.title %></td>
+            <td><%= job.description %></td>
+            <td>$<%= job.pay %></td>
+            <td><%= job.available ? "Yes" : "No" %></td>
+            <td>
+              <%=
+                link_to "Delete Me",
+                business_job_path(:business_id => job.business.id, :id => job.id),
+                method: :delete,
+                id: "delete-job-#{job.id}"
+              %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to "Add Job", new_business_job_path(:business_id => @business.id), id: "add-job-#{@business.name}" %>
+  </div>
+</div>

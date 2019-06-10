@@ -20,7 +20,7 @@ thead {
       <td>Title</td>
       <td>Description</td>
       <td>Pay</td>
-      <td>Availabilty</td>
+      <td>Available?</td>
       <td>Business</td>
       <td>View Business</td>
       <td>Delete</td>
@@ -32,7 +32,7 @@ thead {
         <td><%= job.title %></td>
         <td><%= job.description %></td>
         <td><%= job.pay %></td>
-        <td><%= job.available %></td>
+        <td><%= job.available ? "Yes" : "No" %></td>
         <td><%= job.business.name %></td>
         <td><%= link_to "View #{job.business.name}", business_path(:id => job.business.id) %>
         <td>
