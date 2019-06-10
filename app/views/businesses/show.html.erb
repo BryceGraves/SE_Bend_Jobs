@@ -34,7 +34,7 @@ thead {
         <td>
           <%=
             link_to "Delete Me",
-            business_job_path(:business_id => @business.id, :id => job.id),
+            business_job_path(:business_id => job.business.id, :id => job.id),
             method: :delete,
             id: "delete-job-#{job.id}"
           %>
