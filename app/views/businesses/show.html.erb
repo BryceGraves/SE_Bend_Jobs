@@ -12,13 +12,14 @@ thead {
 <table>
   <thead>
     <tr>
-      <th colspan="4"><%= @business.name %> Jobs</th>
+      <th colspan="5"><%= @business.name %> Jobs</th>
     </tr>
     <tr>
       <td>Title</td>
       <td>Description</td>
       <td>Pay</td>
       <td>Availabilty</td>
+      <td>Delete</td>
     </tr>
   </thead>
   <tbody>
@@ -28,6 +29,7 @@ thead {
         <td><%= job.description %></td>
         <td>$<%= job.pay %></td>
         <td><%= job.available %></td>
+        <td><%= link_to "Delete This", business_job_path(:business_id => @business.id, :id => job.id), method: :delete, id: "delete-job-#{job.id}" %></td>
       </tr>
     <% end %>
   </tbody>
