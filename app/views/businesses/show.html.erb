@@ -9,16 +9,19 @@ thead {
 }
 </style>
 
+<%= link_to "All Businesses", businesses_path %>
+<%= link_to "All Jobs", jobs_path %>
 <table>
   <thead>
     <tr>
-      <th colspan="4"><%= @business.name %> Jobs</th>
+      <th colspan="5">Jobs: <%= @business.name %></th>
     </tr>
     <tr>
       <td>Title</td>
       <td>Description</td>
       <td>Pay</td>
-      <td>Availabilty</td>
+      <td>Available?</td>
+      <td>Delete</td>
     </tr>
   </thead>
   <tbody>
@@ -27,10 +30,17 @@ thead {
         <td><%= job.title %></td>
         <td><%= job.description %></td>
         <td>$<%= job.pay %></td>
-        <td><%= job.available %></td>
+        <td><%= job.available ? "Yes" : "No" %></td>
+        <td>
+          <%=
+            link_to "Delete Me",
+            business_job_path(:business_id => job.business.id, :id => job.id),
+            method: :delete,
+            id: "delete-job-#{job.id}"
+          %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= link_to "BACK TO BUSINESSES", businesses_path %>
 <%= link_to "Add Job", new_business_job_path(:business_id => @business.id), id: "add-job-#{@business.name}" %>
