@@ -1,8 +1,9 @@
 class CreatesBusiness
-  attr_accessor :name, :business
+  attr_accessor :name, :business_type, :business
 
-  def initialize(name: "")
+  def initialize(name: "", business_type: "")
     @name = name
+    @business_type = business_type
   end
 
   def success?
@@ -10,7 +11,7 @@ class CreatesBusiness
   end
 
   def build
-    self.business = Business.new(name: name)
+    self.business = Business.new(name: name, business_type: business_type)
     business
   end
 

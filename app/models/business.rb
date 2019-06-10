@@ -1,7 +1,7 @@
 class Business < ApplicationRecord
   has_many :jobs, dependent: :destroy
   validates :name, presence: true, uniqueness: true
-  validates :type, presence: true
+  validates :business_type, presence: true
 
   def available_jobs
     self.jobs.find_all(&:available?)

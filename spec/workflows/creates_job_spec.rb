@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe CreatesJob do
-  let(:business_creator) { CreatesBusiness.new(name: "FAKE BUSINESS") }
+  let(:business_creator) { CreatesBusiness.new(name: "FAKE BUSINESS", business_type: "FAKE TYPE") }
   let(:job_creator) { CreatesJob.new(title: "FAKE JOB TITLE", description: "FAKE DESCRIPTION",  pay: 42, available: true, business_id: 1) }
   let(:bad_job_creator_no_title) { CreatesJob.new(title: "", description: "FAKE DESCRIPTION",  pay: 42, available: true, business_id: 1) }
   let(:bad_job_creator_long_desc) {

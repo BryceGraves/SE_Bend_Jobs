@@ -1,6 +1,7 @@
 FactoryBot.define do
   factory :business do
     name {"FAKE BUSINESS"}
+    business_type {"FAKE TYPE"}
     jobs {[]}
 
     trait :with_one_job do

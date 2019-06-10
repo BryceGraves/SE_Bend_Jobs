@@ -3,5 +3,7 @@
 <%= form_for(@business) do |f| %>
   <%= f.label(:name)%>
   <%= f.text_field(:name) %>
+  <%= f.label(:business_type)%>
+  <%= f.text_field(:business_type) %>
   <%= f.submit "Create Business"%>
 <%end%>

@@ -35,6 +35,20 @@ RSpec.describe Business do
     end
   end
 
+  describe "A business is invalid if" do
+    it "It has no name" do
+      valid_business_no_jobs.name = ""
+
+      expect(valid_business_no_jobs).not_to be_valid
+    end
+
+    it "It has no type" do
+      valid_business_no_jobs.business_type = ""
+
+      expect(valid_business_no_jobs).not_to be_valid
+    end
+  end
+
   describe "Business functionality" do
     context "A business can check what jobs are available" do
       it "If it has no jobs" do
